@@ -1,0 +1,100 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %} Contact Senwin {% endblock %}
+{% block content%}
+
+
+    <!-- Page Header Start -->
+    <div class="container-fluid page-header">
+        <h2 class="display-3 text-white mb-3">Contact on Whatsapp or Email </h2>
+        <div class="d-inline-flex text-white">
+        </div>
+    </div><br><br>
+    <!-- Page Header Start -->
+
+
+    <div class="boxed boxedp4">
+        <div class="row contactv2 text-center">
+            <div class="col-md-4">
+                <div class="small-box">
+                    <a href="https://wa.me/+2347016087680?text=Hi SenwinTech?"target="_blank">
+                    <i style="color: #055160;"class="fa fa-3x fa-home"></i></a>
+                    <h4 style="font-family: Georgia;">Whatsapp Me </h4>
+                    <h5> <a style="font-weight:400;"href="https://wa.me/+2347016087680?text=Hi SenwinTech?"target="_blank">+234 701 608 7680</a></h5>
+                
+                </div><!-- end small-box -->
+            </div><!-- end col -->
+        
+            <div class="col-md-4"id="bb">
+                <div class="small-box">
+                    <a href="mailto:cybersenwin@proton.me"target="_blank">
+                    <i style="color: #055160;"class="fa fa-3x fa-home"></i></a> 
+                    <h4 style="font-family: Georgia;">Send Us an Email</h4>
+                    <p><a style="font-weight:400;" href="mailto:cybersenwin@proton.me"target="_blank">Cybersenwin@proton.me</a></p>
+ 
+                </div><!-- end small-box -->
+            </div><!-- end col -->
+
+            <div class="col-md-4"id="bc">
+                <div class="small-box">
+                     <a href="https://maps.app.goo.gl/ew5ojhE2ybDWQYzC9"target="_blank">
+                    <i style="color: #055160;"class="fa fa-3x fa-home"></i>      
+                    <h4 style="font-family: Georgia;">Visit Senwin</h4>
+                    <a href="https://maps.app.goo.gl/SLc89ZrSLBQxiMGG7"target="_blank">
+                    <label>13, Ahmed Jimoh cl, Surulere, Lagos</span></a>
+                    <a style="font-weight:100;"href="https://maps.app.goo.gl/ew5ojhE2ybDWQYzC9"target="_blank"><p >View on Google Map</p></a>  
+                </div><!-- end small-box -->
+            </div><!-- end col -->   
+
+        </div><!-- end contactv2 -->
+    </div>
+
+    
+ 
+    <!-- Contact Start -->
+    <div class="container-fluid py-6 px-5">
+        <div class="text-center mx-auto mb-5" style="max-width: 600px;">
+            <h1 class="display-5 mb-4" style="color: #055160; font-family: emoji;">Please Feel Free To Contact Us</h1>
+        </div>
+        <div class="row gx-0 align-items-center">
+            <div class="col-lg-6 mb-5 mb-lg-0" style="height: 600px;">
+                {% for post in object_list %}
+                <video autoplay muted playsinline loop width="100%" height="auto" controls style="border-radius: 5px; display: block;">
+                    <source src="{{ post.contact_video.url }}" type="video/mp4">
+                    <source src="{{ post.contact_video.url }}" type="video/webm">
+                    Your browser does not support the video tags.
+                </video>
+                {% endfor %}
+            </div>
+
+            
+            <div class="col-lg-6">
+                <div class="contact-form bg-light p-5">
+                    <form action="{% url 'contact_senwin' %}" method="post">
+                        {% csrf_token %}
+                        <div class="row g-3">
+                            <div class="col-12 col-sm-6">
+                                <input type="text" class="form-control border-0"name="message-name" placeholder="Your Name" style="height: 55px;">
+                            </div>
+                            <div class="col-12 col-sm-6">
+                                <input type="email" class="form-control border-0"name="message-email" placeholder="Your Email" style="height: 55px;">
+                            </div>
+                            <div class="col-12">
+                                <input type="text" class="form-control border-0"name="message-subject" placeholder="Subject" style="height: 55px;">
+                            </div>
+                            <div class="col-12">
+                                <textarea class="form-control border-0" rows="4"name="message" placeholder="Message"></textarea>
+                            </div>
+                            <div class="col-12">
+                                <button class="btn btn-primary w-100 py-3" type="submit">Send Message</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Contact End -->
+
+
+{% endblock %}

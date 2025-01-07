@@ -1,0 +1,180 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content%}
+
+ <!-- Carousel Start -->
+    <video autoplay muted playsinline loop width="100%" height="400"controls id="myVideo">
+        <source src="{% static 'video/nnn.mp4' %}" type="video/mp4">
+        <source src="{% static 'video/nnn.mp4' %}" type="video/webm">
+        Your browser does not support the video tag.
+    </video><br>
+<!-- Carousel End -->
+
+    <!-- About Start -->
+    <div class="container-fluid py-6 px-5">
+        <div class="row g-5">
+            <div class="col-lg-7">
+                <h5 class="display-7 mb-4"style="color: #055160; font-family: emoji;">Stay ahead of the curve with expert insights, product reviews, and the tech trends defining tomorrow</h5>
+                <p style="color: #040F28; font-family: emoji;">Senwin takes center stage in the tech industry, offering creative media campaigns, sizzling tech events, bespoke innovation programs.</p>
+                <div class="row gx-5 py-2">
+                    <div class="col-sm-6 mb-2">
+                        <p class="fw-bold mb-2"style="font-family: emoji;"><i class="fa fa-check text-primary me-3"></i>Innovation and Progress</p>
+                        <p class="fw-bold mb-2"style="font-family: emoji;"><i class="fa fa-check text-primary me-3"></i>Expert Insights</p>
+                        <p class="fw-bold mb-2"style="font-family: emoji;"><i class="fa fa-check text-primary me-3"></i>Practicality</p>
+                    </div>
+                </div>
+                <p class="mb-4"style="font-family: emoji;">At the intersection of innovation and practicality, we bring you the insights you need to navigate in the tech world.
+                    From Backend Development, CyberSecurity, Data Analysis to Blockchain, dive into the technologies driving the next generation of progress and possibilities.
+                </p>
+            </div>
+            <div class="col-lg-5 pb-5" style="height: 500px;">
+                <div class="position-relative bg-dark-radial h-100 ms-5">
+                    <img class="position-absolute w-100 h-100 mt- ms-n5" src="{% static 'img/senwin.jpg' %}" style="object-fit: cover;border-radius: 5px;">
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- About End -->
+     
+    
+    <!-- Portfolio Start -->
+    <div class="container-fluid bg-light py-6 px-5">
+        <div class="text-center mx-auto mb-5" style="max-width: 600px;">
+            <h1 class="display-5 mb-4"style="color: #055160; font-family: emoji;">My Projects</h1>
+        </div>
+        <div class="row gx-5">
+            <div class="col-12 text-center">
+                {% for senwin_sencond_home_page in senwin_sencond_home_pages %}
+                <div class="d-inline-block bg-dark-radial text-center pt-4 px-5 mb-5">
+                    <a href="{% url 'second_detail' senwin_sencond_home_page.pk %}">
+                    <ul class="list-inline mb-0" id="portfolio-flters">
+                        <li class="btn btn-outline-primary bg-white p-2 active mx-2 mb-4" data-filter="*">
+                            <img src="{{ senwin_sencond_home_page.senwin_project_image.url }}" style="width: 150px; height: 100px;">
+                            <div class="position-absolute top-0 start-0 end-0 bottom-0 m-2 d-flex align-items-center justify-content-center" style="background: rgba(4, 15, 40, .3);">
+                                <h6 class="text-white m-0">{{ senwin_sencond_home_page.senwin_project_title }}</h6>
+                            </div>
+                        </li>
+                    </ul>
+                </a>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+
+        <div class="row g-5 portfolio-container">
+            {% for senwin_sencond_home_page in senwin_sencond_home_pages %}
+            <div class="col-xl-4 col-lg-6 col-md-6 portfolio-item first">
+                <div class="position-relative portfolio-box">
+                    <a href="{% url 'second_detail' senwin_sencond_home_page.pk %}">
+                    <img class="img-fluid w-100" src="{{ senwin_sencond_home_page.senwin_project_image.url }}" alt="">
+                    </a>
+                    <a class="portfolio-title shadow-sm" href="{% url 'second_detail' senwin_sencond_home_page.pk %}">
+                        <p class="h4"style="color: #055160;">{{ senwin_sencond_home_page.senwin_project_title }}</p>
+                        <span class="text-body"></i>{{ senwin_sencond_home_page.senwin_project_description |truncatechars:20 }}</span>
+                    </a>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+    <!-- Portfolio End -->
+
+    <!-- Services Start -->
+    <div class="container-fluid bg-light py-6 px-5">
+        <div class="text-center mx-auto mb-5" style="max-width: 600px;">
+            <h3 class="display-5 mb-4"style="color: #055160; font-family: emoji;">We Provide The Best Technologies Services</h3>
+        </div>
+        <div class="row g-5">
+        {% for post in object_list %}
+            <div class="col-lg-6 col-md-">
+                <div class="service-item bg-white d-flex flex-column align-items-center text-center">
+                    <a href="{% url 'detail' post.pk %}">
+                    <img class="img-fluid" src="{{ post.senwin_image.url }}"style="border-radius: 5px; height:300px;width: 550px;"alt=""><br>
+                    </a><br>
+                    <div class="px-7 pb-4">
+                        <a href="{% url 'detail' post.pk %}">
+                        <h4 class="mb-3"style="color: #055160;">{{ post.senwin_title }}</h4>
+                        </a>
+                        <p>{{ post.senwin_description |truncatechars:77 }}</p>
+                        <a class="btn btn-primary"style="color:white;" href="{% url 'detail' post.pk %}">Read More <i class="bi bi-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+    <!-- Services End -->
+    
+    <!-- Testimonial Start -->
+    <div class="container-fluid bg-light py-6 px-5">
+        <div class="text-center mx-auto mb-5" style="max-width: 600px;">
+            <h1 class="display-5 mb-4"style="color: #055160; font-family: emoji;">Feed Back From Our Happy Cleints Say</h1>
+        </div>
+        <div class="row gx-0 align-items-center">
+            <div class="col-xl-4 col-lg-5 d-none d-lg-block">
+                <img class="img-fluid w-100 h-100" src="{% static 'img/testimonial.jpg' %}" style="border-radius: 5px;">
+            </div>
+            <div class="col-xl-8 col-lg-7 col-md-12">
+                <div class="testimonial bg-light">
+                    <div class="owl-carousel testimonial-carousel">
+                        <div class="row gx-4 align-items-center">
+                            <div class="col-xl-4 col-lg-5 col-md-5">
+                                <img class="img-fluid w-100 h-100 bg-light p-lg-3 mb-4 mb-md-0" src="{% static 'img/testimonial-1.jpg' %}" alt="">
+                            </div>
+                            <div class="col-xl-8 col-lg-7 col-md-7">
+                                <h4 class="mb-0"style="color: #055160; font-family: emoji;">Solomon</h4>
+                                <p>Bootcamp Owner</p>
+                                <p class="fs-5 mb-0"><i class="fa fa-2x fa-quote-left text-primary me-2"></i>
+                                    I am incredibly grateful for the amazing support and expertise 
+                                    Senwin provided in creating my website. From start to finish, they were not only 
+                                    highly professional but also attentive to every detail of my vision.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="row gx-4 align-items-center">
+                            <div class="col-xl-4 col-lg-5 col-md-5">
+                                <img class="img-fluid w-100 h-100 bg-light p-lg-3 mb-4 mb-md-0" src="{% static 'img/testimonial-2.jpg' %}" alt="">
+                            </div>
+                            <div class="col-xl-8 col-lg-7 col-md-7">
+                                <h4 class="mb-0"style="color: #055160; font-family: emoji;">Eden</h4>
+                                <p>Social WebCamp</p>
+                                <p class="fs-5 mb-0"><i class="fa fa-2x fa-quote-left text-primary me-2"></i> 
+                                    I can't thank Senwin enough for the incredible work they did in building my website. 
+                                    From our initial discussions to the final launch, their professionalism and dedication 
+                                    to quality were evident every step of the way.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div><br>
+    <!-- Testimonial End -->
+
+    <!-- Blog Start -->
+    <div class="container-fluid py-8 px-5">
+        <div class="text-center mx-auto mb-5" style="max-width: 600px;">
+            <h1 class="display-5 mb-4"style="color: #055160; font-family: emoji;">Latest Post</h1>
+        </div>
+        <div class="row g-5">
+            {% for senwin_latest_page in senwin_latest_pages %}
+            <div class="col-lg-4 col-md-6">
+                <div class="bg-light">
+                    <a href="{% url 'third_detail' senwin_latest_page.pk %}">
+                    <img class="img-fluid" src="{{ senwin_latest_page.latest_post_image.url }}"style="width: 360px; height: 300px;" alt="">
+                    <div class="p-4">
+                        <h5 class="mb-3"style="color: #055160; font-family: emoji;">{{ senwin_latest_page.latest_post_title }}</h5>
+                    </a>
+                        <p>{{ senwin_latest_page.latest_post_description|truncatechars:70}}</p>
+                        <a class="btn btn-primary"style="color:white;" href="{% url 'third_detail' senwin_latest_page.pk %}">Read More <i class="bi bi-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div><br><br>
+    <!-- Blog End -->
+
+
+{% endblock %}

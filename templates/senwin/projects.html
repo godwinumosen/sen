@@ -1,0 +1,92 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}Senwin Projects{% endblock %}
+{% block content%}
+
+  <!-- Page Header Start -->
+  <div class="container-fluid page-header">
+    <h1 class="display-3 text-white mb-3">My Projects</h1>
+</div>
+<!-- Page Header Start --
+
+        <!-- Services Start -->
+        <div class="container-fluid bg-light py-6 px-5">
+            <div class="text-center mx-auto mb-5" style="max-width: 600px;">
+                <h3 class="display-5 mb-4"style="color: #055160; font-family: emoji;">I Build Web Apps That Make Life Better, Check it Below</h3>
+            </div>
+            <div class="row g-5">
+                <div class="col-lg-4 col-md-6" >
+                    <div class="service-item bg-white rounded d-flex flex-column align-items-center text-center">
+                        <img class="img-fluid" src="{% static 'img/edensdigital.png' %}"style="height: 250px; width:100%; border-radius: 5px;"alt=""><br>
+                        <div class="px-4 pb-4">
+                            <h4 class=" mb-3"style="color: #055160;">Edens Digital</h4>
+                            <a class="btn btn-primary"style="color:white;" href="https://edensdigital.agency/"target="_blank">Check Out <i class="bi bi-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="service-item bg-white d-flex flex-column align-items-center text-center">
+                        <img class="img-fluid" src="{% static 'img/deusmagnus.png' %}"style="height: 250px; width:100%;border-radius: 5px;" alt=""><br>
+                        <div class="px-4 pb-4">
+                            <h4 class=" mb-3"style="color: #055160;">Deus Magnus</h4>
+                            <a class="btn btn-primary"style="color:white;" href="https://deusmagnus.com/"target="_blank">Check Out<i class="bi bi-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="service-item bg-white rounded d-flex flex-column align-items-center text-center">
+                        <img class="img-fluid" src="{% static 'img/techbeatrice.png' %}"style="height: 250px; width:100%;border-radius: 5px;" alt=""><br>
+                        <div class="px-4 pb-4">
+                            <h4 class=" mb-3"style="color: #055160;">Tech Beatrice</h4>
+                            <a class="btn btn-primary"style="color:white;" href="https://techbeatrice.com/"target="_blank">Check Out <i class="bi bi-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6" >
+                    <div class="service-item bg-white rounded d-flex flex-column align-items-center text-center">
+                        <img class="img-fluid" src="{% static 'img/josepdam.png' %}"style="height: 250px; width:100%;border-radius: 5px;" alt=""><br>
+                        <div class="px-4 pb-4">
+                            <h4 class=" mb-3"style="color: #055160;">Josepdam Real Estate</h4>
+                            <a class="btn btn-primary"style="color:white;" href="https://www.josepdam.com/"target="_blank">Check Out <i class="bi bi-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6" >
+                    <div class="service-item bg-white rounded d-flex flex-column align-items-center text-center">
+                        <img class="img-fluid" src="{% static 'img/josepdam.png' %}"style="height: 250px; width:100%;border-radius: 5px;" alt=""><br>
+                        <div class="px-4 pb-4">
+                            <h4 class=" mb-3"style="color: #055160;">Josepdam Real Estate</h4>
+                            <a class="btn btn-primary"style="color:white;" href="https://www.josepdam.com/"target="_blank">Check Out <i class="bi bi-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Services End -->
+
+
+ <!-- Portfolio Start -->
+ <div class="container-fluid bg-light py-6 px-5">
+    <div class="row gx-5">
+        <div class="col-12 text-center">
+            {% for post in object_list %}
+            <div class="d-inline-block bg-dark-radial text-center pt-4 px-5 mb-5">
+                <a href="{% url 'project_article' post.pk %}">
+                <ul class="list-inline mb-0" id="portfolio-flters">
+                    <li class="btn btn-outline-primary bg-white p-2 active mx-2 mb-4" data-filter="*">
+                        <img src="{{ post.senwin_project_image.url }}" style="width: 150px; height: 100px;">
+                        <div class="position-absolute top-0 start-0 end-0 bottom-0 m-2 d-flex align-items-center justify-content-center" style="background: rgba(4, 15, 40, .3);">
+                            <h6 class="text-white m-0">{{ post.senwin_project_title }}</h6>
+                        </div>
+                    </li>
+                </ul>
+            </a>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+<!-- Portfolio End -->
+
+
+{% endblock %}

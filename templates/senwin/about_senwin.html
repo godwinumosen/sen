@@ -1,0 +1,87 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %} About Senwin {% endblock %}
+{% block content%}
+
+
+    <!-- Page Header Start -->
+    <div class="container-fluid page-header">
+        <h1 class="display-3 text-white mb-3">I Build Things For The Web.</h1>
+    </div>
+    <!-- Page Header Start -->
+
+    <!-- About Start -->
+    <div class="container-fluid py-6 px-5">
+        <div class="row g-5">
+            <div class="col-lg-7">
+                <h1 class="display-5 text-uppercase mb-4"></h1>
+                <h5 class="display-7 text-uppercase mb-4"style="color: #055160; font-family: emoji;">I am Godwin Uduak</h5>
+                <p style="color: #040F28; font-family: emoji;">I am Software Developer (Web2 & Web3), Data Analyst and a CyberSecurity Professional working hybrid from Lagos, Nigeria.</p>
+                <div class="row gx-5 py-2">
+                    <div class="col-sm-6 mb-2">
+                        <p class="fw-bold mb-2"><i class="fa fa-check text-primary me-3"></i>Python Language</p>
+                        <p class="fw-bold mb-2"><i class="fa fa-check text-primary me-3"></i>Django Rest Framwork</p>
+                        <p class="fw-bold mb-2"><i class="fa fa-check text-primary me-3"></i>JavaScript HTML/CSS</p>
+                    </div>
+                    <div class="col-sm-6 mb-2">
+                        <p class="fw-bold mb-2"><i class="fa fa-check text-primary me-3"></i>Rust Language for Solana</p>
+                        <p class="fw-bold mb-2"><i class="fa fa-check text-primary me-3"></i>Kali Linus</p>
+                        <p class="fw-bold mb-2"><i class="fa fa-check text-primary me-3"></i>CyberSecurity Tools</p>
+                    </div>
+                </div>
+                <p class="mb-4">I’m a developer passionate about crafting accessible, pixel-perfect user interfaces that blend thoughtful design with robust development. 
+                    My favorite work lies at the intersection of design, development and security, creating experiences that not only look great but are meticulously built for performance and usability.</p>
+                <img src="{% static 'img/signature.jpg' %}" alt="">
+            </div>
+            <div class="col-lg-5 pb-5" style="min-height: 400px;">
+                <div class="position-relative bg-dark-radial h-100 ms-5">
+                    <img class="position-absolute w-100 h-100 mt-5 ms-n5" src="{% static 'img/senwin.jpg' %}" style="object-fit: cover;border-radius: 5px;">
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <!-- Appointment Start -->
+    <div class="container-fluid bg-light py-6 px-5">
+            <div class="row gx-5">
+                <div class="col-lg-4 mb-5 mb-lg-0">
+                    <div class="mb-4">
+                        <h1 class="display-5 mb-4"style="color: #055160;">Request A Call Back </h1>
+                    </div>
+                    <p class="mb-5">We'd love to hear from you! Please fill out the form below, and a member of our team will reach out to you as soon as possible.</p>
+                    <a class="btn btn-primary py-3 px-5" href="{% url 'contact_senwin' %}">Get A Quote</a>
+                </div>
+                <div class="col-lg-8">
+                    <div class="bg-white text-center p-5">
+                        <form>
+                            <div class="row g-3">
+                                <div class="col-12 col-sm-6">
+                                    <div class="date" id="date" data-target-input="nearest">
+                                        <input type="text"
+                                            class="form-control bg-light border-0 datetimepicker-input"
+                                            placeholder="Call Back Date" data-target="#date" data-toggle="datetimepicker" style="height: 55px;">
+                                    </div>
+                                </div>
+                                <div class="col-12 col-sm-6">
+                                    <div class="time" id="time" data-target-input="nearest">
+                                        <input type="text"
+                                            class="form-control bg-light border-0 datetimepicker-input"
+                                            placeholder="Call Back Time" data-target="#time" data-toggle="datetimepicker" style="height: 55px;">
+                                    </div>
+                                </div>
+                                <div class="col-12">
+                                    <a class="btn btn-primary py-3 px-5" href="{% url 'contact_senwin' %}">Hire Me</a>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+    </div><br>
+    <!-- Appointment End -->
+
+
+    
+{% endblock %}
