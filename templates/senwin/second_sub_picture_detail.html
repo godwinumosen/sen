@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}{{ object.second_category_title }} {% endblock %}
+{% block content%}
+
+    <!-- Page Header Start -->
+    <div class="container-fluid page-header">
+        <h2 class="display-3 text-white mb-3">{{ object.second_category_title|truncatechars:40 }}</h2>
+        <div class="d-inline-flex text-white">
+        </div>
+    </div>
+    <!-- Page Header Start -->
+
+    
+    <!-- Blog Start -->
+    <div class="container-fluid py-6 px-5">
+        <div class="row g-5">
+            <div class="col-lg-10">
+                <!-- Blog Detail Start -->
+                <div class="mb-5">
+                    <img class="img-fluid w-100 rounded mb-5" src="{{ object.second_category_image.url }}"style="border-radius: 5px;" alt="">
+                    <h1 class="mb-4"style="color: #055160;">{{ object.second_category_title }}</h1>
+                    <p>{{ object.second_category_description }}.</p>
+
+                    <div class="btn-wrapper">
+                        <a href=""onclick="history.back(); return false;" class="btn btn-primary"style="border-radius: 5px;font-family:emoji;"> Back </a>
+                    </div><br>
+                    <h6>{{ object.second_category_publish_date }}</h>
+                </div>
+                <!-- Blog Detail End -->
+            </div>
+
+            <!-- Sidebar End -->
+        </div>
+    </div>
+    <!-- Blog End -->
+
+{% endblock %}
