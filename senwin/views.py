@@ -7,7 +7,7 @@ from django.urls import reverse_lazy
 from django.contrib import messages
 from django.contrib.auth.models import User
 from django.contrib.auth.mixins import LoginRequiredMixin  
-from .models import SenwinMainPost,SenwinProjectPost,Contactvideo,SenwinLatestPost
+from .models import SenwinMainPost,SenwinProjectPost,Contactvideo,SenwinLatestPost,CategoryPost
 
 '''def home(request):
     return render (request,'senwin/home.html')'''
@@ -32,6 +32,23 @@ class ArticleDetailView(DetailView):
     def ArticleDetailViewDeusmagnuslimited(request, pk): 
         object = get_object_or_404(SenwinMainPost, pk=pk)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  
         return render(request, 'article_detail.html', {'detail': object})
+    
+     #This sub-model data related to the second article model instance
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['sub_categorys'] = CategoryPost.objects.all() 
+        return context 
+
+
+#sub_picture article display inside second detailsview
+class SubPictureDetailView(DetailView):
+    model = CategoryPost
+    template_name = 'senwin/sub_picture_detail.html'
+    context_object_name = 'sub_picture'
+    def SubPictureDetailView(request, pk):
+        object = get_object_or_404(SubPictureDetailView, pk=pk)
+        return render(request, 'senwin/sub_picture_detail.html', {'sub_detail': object})  
+    
     
 
 #The second ArticleDetailView page of deus magnus group

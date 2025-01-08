@@ -2,6 +2,7 @@ from django.contrib import admin
 # Register your models here.
 from . import models
 from .models import SenwinMainPost,SenwinProjectPost,Contactvideo,SenwinLatestPost
+from .models import CategoryPost,SecondCategoryPost
 
 #The Senwin main post model admin
 class SenwinMainPostModelAdmin (admin.ModelAdmin):
@@ -23,3 +24,15 @@ admin.site.register(SenwinProjectPost, SenwinProjectPostModelAdmin)
 class ContactvideoModelAdmin (admin.ModelAdmin):
     list_display = ['contact_video']
 admin.site.register(Contactvideo, ContactvideoModelAdmin)
+
+#The Catigory post model admin
+class CategoryPostModelAdmin (admin.ModelAdmin):
+    prepopulated_fields = {'category_slug': ('category_title',)}
+    list_display = ['category_title','category_description','category_slug']
+admin.site.register(CategoryPost, CategoryPostModelAdmin)
+
+#The second Catigory post model admin
+class SecondCategoryPostModelAdmin (admin.ModelAdmin):
+    prepopulated_fields = {'second_category_slug': ('second_category_title',)}
+    list_display = ['second_category_title','second_category_description','second_category_slug']
+admin.site.register(SecondCategoryPost, SecondCategoryPostModelAdmin)

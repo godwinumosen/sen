@@ -68,7 +68,6 @@
                         <a class="h6 text-uppercase mb-4" href="#"><i class="fa fa-angle-right me-2"></i>Blockchain</a>
                         <a class="h6 text-uppercase mb-4" href="#"><i class="fa fa-angle-right me-2"></i>Artificial Inteligent</a>
                         <a class="h6 text-uppercase mb-4" href="#"><i class="fa fa-angle-right me-2"></i>Data Analysis</a>
-                        <a class="h6 text-uppercase mb-4" href="#"><i class="fa fa-angle-right me-2"></i>Keyword Research</a>
                         <a class="h6 text-uppercase mb-0" href="#"><i class="fa fa-angle-right me-2"></i>Email Marketing</a>
                     </div>
                 </div>
@@ -78,45 +77,17 @@
                 <div class="mb-5">
                     <h3 class="mb-4"style="color: #055160;">Recent Post</h3>
                     <div class="bg-light p-4">
+                        {% for sub_category in sub_categorys %}
                         <div class="d-flex mb-3">
-                            <img class="img-fluid" src="{% static 'img/blog-1.jpg' %}" style="width: 100px; height: 100px; object-fit: cover;" alt="">
-                            <a href="" class="h6 d-flex align-items-center bg-white text-uppercase px-3 mb-0">Lorem ipsum dolor sit amet consec adipis
-                            </a>
-                        </div>
-                        <div class="d-flex mb-3">
-                            <img class="img-fluid" src="{% static 'img/blog-2.jpg' %}" style="width: 100px; height: 100px; object-fit: cover;" alt="">
-                            <a href="" class="h6 d-flex align-items-center bg-white text-uppercase px-3 mb-0">Lorem ipsum dolor sit amet consec adipis
-                            </a>
-                        </div>
-                        <div class="d-flex mb-3">
-                            <img class="img-fluid" src="{% static 'img/blog-3.jpg' %}" style="width: 100px; height: 100px; object-fit: cover;" alt="">
-                            <a href="" class="h6 d-flex align-items-center bg-white text-uppercase px-3 mb-0">Lorem ipsum dolor sit amet consec adipis
-                            </a>
-                        </div>
-                        <div class="d-flex mb-3">
-                            <img class="img-fluid" src="{% static 'img/blog-1.jpg' %}" style="width: 100px; height: 100px; object-fit: cover;" alt="">
-                            <a href="" class="h6 d-flex align-items-center bg-white text-uppercase px-3 mb-0">Lorem ipsum dolor sit amet consec adipis
-                            </a>
-                        </div>
-                        <div class="d-flex mb-3">
-                            <img class="img-fluid" src="{% static 'img/blog-2.jpg' %}" style="width: 100px; height: 100px; object-fit: cover;" alt="">
-                            <a href="" class="h6 d-flex align-items-center bg-white text-uppercase px-3 mb-0">Lorem ipsum dolor sit amet consec adipis
-                            </a>
-                        </div>
-                        <div class="d-flex">
-                            <img class="img-fluid" src="{% static 'img/blog-3.jpg' %}" style="width: 100px; height: 100px; object-fit: cover;" alt="">
-                            <a href="" class="h6 d-flex align-items-center bg-white text-uppercase px-3 mb-0">Lorem ipsum dolor sit amet consec adipis
-                            </a>
-                        </div>
+                             <a href="">
+                            <img class="img-fluid" src="{{ sub_category.category_image.url }}" style="width: 100px; height: 100px; object-fit: cover;" alt="">
+                             </a>
+                            <a href="" class="h6 d-flex align-items-center bg-white text-uppercase px-3 mb-0">{{ sub_category.category_title|truncatechars:30 }}</a>
+                        </div>  
+                        {% endfor %}    
                     </div>
                 </div>
                 <!-- Recent Post End -->
-
-                <!-- Image Start -->
-                <div class="mb-5">
-                    <img src="{% static 'img/blog-1.jpg' %}" alt="" class="img-fluid rounded">
-                </div>
-                <!-- Image End -->
             
             </div>
             <!-- Sidebar End -->

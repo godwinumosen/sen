@@ -59,3 +59,39 @@ class SenwinLatestPost(models.Model):
     def get_absolute_url(self):
         return reverse('home')
     
+    
+# The category model for my category
+class CategoryPost(models.Model):
+    category_title = models.CharField(max_length=255, blank=True, null=True)
+    category_description = models.TextField()
+    category_slug = models.SlugField (max_length=255,blank=True, null=True)
+    category_image= models.ImageField(upload_to='images_ category/')
+    category_publish_date = models.DateTimeField (auto_now_add= True)
+    category_author = models.ForeignKey(User, on_delete=models.CASCADE)
+
+    class Meta:
+        ordering =['-category_publish_date']
+    
+    def __str__(self):
+        return self.category_title + ' | ' + str(self.category_author)
+    
+    def get_absolute_url(self):
+        return reverse('home')
+    
+    # The second category model for my category
+class SecondCategoryPost(models.Model):
+    second_category_title = models.CharField(max_length=255, blank=True, null=True)
+    second_category_description = models.TextField()
+    second_category_slug = models.SlugField (max_length=255,blank=True, null=True)
+    second_category_image= models.ImageField(upload_to='images_ second_category/')
+    second_category_publish_date = models.DateTimeField (auto_now_add= True)
+    second_category_author = models.ForeignKey(User, on_delete=models.CASCADE)
+
+    class Meta:
+        ordering =['-second_category_publish_date']
+    
+    def __str__(self):
+        return self.second_category_title + ' | ' + str(self.second_category_author)
+    
+    def get_absolute_url(self):
+        return reverse('home')
