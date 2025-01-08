@@ -70,7 +70,7 @@
                              <a href="{% url 'sub_detail' pk=sub_category.pk %}">
                             <img class="img-fluid" src="{{ sub_category.category_image.url }}" style="width: 100px; height: 100px; object-fit: cover;" alt="">
                              </a>
-                            <a href="{% url 'sub_detail' pk=sub_category.pk %}" class="h6 d-flex align-items-center bg-white text-uppercase px-3 mb-0">{{ sub_category.category_title|truncatechars:30 }}</a>
+                            <a href="{% url 'sub_detail' pk=sub_category.pk %}" class="h6 d-flex align-items-center bg-white px-3 mb-0">{{ sub_category.category_title|truncatechars:30 }}</a>
                         </div>  
                         {% endfor %}    
                     </div>

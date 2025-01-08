@@ -37,9 +37,10 @@
                     <div class="bg-light p-4">
                         {% for second_sub_category in second_sub_categorys %}
                         <div class="d-flex mb-3">
-                            <img class="img-fluid" src="{% static 'img/blog-1.jpg' %}" style="width: 100px; height: 100px; object-fit: cover;" alt="">
-                            <a href="" class="h6 d-flex align-items-center bg-white px-3 mb-0">Lorem ipsum dolor sit amet consec adipis
+                            <a href="{% url 'second_sub_detail' pk=second_sub_category.pk %}">
+                            <img class="img-fluid" src="{{ second_sub_category.second_category_image.url }}" style="width: 100px; height: 100px; object-fit: cover;" alt="">
                             </a>
+                            <a href="{% url 'second_sub_detail' pk=second_sub_category.pk %}" class="h6 d-flex align-items-center bg-white px-3 mb-0">{{ second_sub_category.second_category_title|truncatechars:30 }}</a>
                         </div>
                         {% endfor %}
                     </div>

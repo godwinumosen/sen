@@ -48,7 +48,8 @@ class SubPictureDetailView(DetailView):
     context_object_name = 'sub_picture'
     def SubPictureDetailView(request, pk):
         object = get_object_or_404(SubPictureDetailView, pk=pk)
-        return render(request, 'senwin/sub_picture_detail.html', {'sub_detail': object})  
+        return render(request, 'senwin/sub_picture_detail.html', {'sub_detail': object}) 
+     
 
 #The second ArticleDetailView page of deus magnus group
 class SecondProjectsDetailView(DetailView):
@@ -73,7 +74,17 @@ class ThirdLatestPostDetailView(DetailView):
         context = super().get_context_data(**kwargs)
         context['second_sub_categorys'] = SecondCategoryPost.objects.all() 
         return context 
-    
+
+
+#second sub_picture article display inside second detailsview
+class SecondSubPictureDetailView(DetailView):
+    model = SecondCategoryPost
+    template_name = 'senwin/second_sub_picture_detail.html'
+    context_object_name = 'second_sub_picture'
+    def SubPictureDetailView(request, pk):
+        object = get_object_or_404(SecondSubPictureDetailView, pk=pk)
+        return render(request, 'senwin/second_sub_picture_detail.html', {'second_sub_detail': object}) 
+
 
 #The project class base View page
 class Projects(ListView): 
