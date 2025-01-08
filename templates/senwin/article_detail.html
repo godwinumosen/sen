@@ -59,19 +59,7 @@
             <div class="col-lg-4">
              
 
-                <!-- Category Start -->
-                <div class="mb-5">
-                    <h3 class=" mb-4"style="color: #055160;">Categories</h3>
-                    <div class="d-flex flex-column justify-content-start bg-light p-4">
-                        <a class="h6 text-uppercase mb-4" href="#"><i class="fa fa-angle-right me-2"></i>Web Development</a>
-                        <a class="h6 text-uppercase mb-4" href="#"><i class="fa fa-angle-right me-2"></i>CyberSecurity</a>
-                        <a class="h6 text-uppercase mb-4" href="#"><i class="fa fa-angle-right me-2"></i>Blockchain</a>
-                        <a class="h6 text-uppercase mb-4" href="#"><i class="fa fa-angle-right me-2"></i>Artificial Inteligent</a>
-                        <a class="h6 text-uppercase mb-4" href="#"><i class="fa fa-angle-right me-2"></i>Data Analysis</a>
-                        <a class="h6 text-uppercase mb-0" href="#"><i class="fa fa-angle-right me-2"></i>Email Marketing</a>
-                    </div>
-                </div>
-                <!-- Category End -->
+               
 
                 <!-- Recent Post Start -->
                 <div class="mb-5">
@@ -79,15 +67,27 @@
                     <div class="bg-light p-4">
                         {% for sub_category in sub_categorys %}
                         <div class="d-flex mb-3">
-                             <a href="">
+                             <a href="{% url 'sub_detail' pk=sub_category.pk %}">
                             <img class="img-fluid" src="{{ sub_category.category_image.url }}" style="width: 100px; height: 100px; object-fit: cover;" alt="">
                              </a>
-                            <a href="" class="h6 d-flex align-items-center bg-white text-uppercase px-3 mb-0">{{ sub_category.category_title|truncatechars:30 }}</a>
+                            <a href="{% url 'sub_detail' pk=sub_category.pk %}" class="h6 d-flex align-items-center bg-white text-uppercase px-3 mb-0">{{ sub_category.category_title|truncatechars:30 }}</a>
                         </div>  
                         {% endfor %}    
                     </div>
                 </div>
                 <!-- Recent Post End -->
+
+                 <!-- Category Start -->
+                 <div class="mb-5">
+                    <h3 class=" mb-4"style="color: #055160;">Categories</h3>
+                    <div class="d-flex flex-column justify-content-start bg-light p-4">
+                        <a class="h6 text-uppercase mb-4" href="#"><i class="fa fa-angle-right me-2"></i>Web Development</a>
+                        <a class="h6 text-uppercase mb-4" href="#"><i class="fa fa-angle-right me-2"></i>CyberSecurity</a>
+                        <a class="h6 text-uppercase mb-4" href="#"><i class="fa fa-angle-right me-2"></i>Blockchain</a>
+                        <a class="h6 text-uppercase mb-4" href="#"><i class="fa fa-angle-right me-2"></i>Data Analysis</a>
+                    </div>
+                </div>
+                <!-- Category End -->
             
             </div>
             <!-- Sidebar End -->
