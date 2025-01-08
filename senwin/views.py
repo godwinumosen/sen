@@ -7,7 +7,8 @@ from django.urls import reverse_lazy
 from django.contrib import messages
 from django.contrib.auth.models import User
 from django.contrib.auth.mixins import LoginRequiredMixin  
-from .models import SenwinMainPost,SenwinProjectPost,Contactvideo,SenwinLatestPost,CategoryPost
+from .models import SenwinMainPost,SenwinProjectPost,Contactvideo,CategoryPost
+from .models import SecondCategoryPost,SenwinLatestPost
 
 '''def home(request):
     return render (request,'senwin/home.html')'''
@@ -48,8 +49,6 @@ class SubPictureDetailView(DetailView):
     def SubPictureDetailView(request, pk):
         object = get_object_or_404(SubPictureDetailView, pk=pk)
         return render(request, 'senwin/sub_picture_detail.html', {'sub_detail': object})  
-    
-    
 
 #The second ArticleDetailView page of deus magnus group
 class SecondProjectsDetailView(DetailView):
@@ -68,6 +67,13 @@ class ThirdLatestPostDetailView(DetailView):
     def ThirdLatestPostDetailView(request, pk):
         object = get_object_or_404(SenwinLatestPost, pk=pk)
         return render(request, 'senwin/third_article_detail.htm', {'third_detail': object})
+    
+         #This second sub-model data related to the second article model instance
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['second_sub_categorys'] = SecondCategoryPost.objects.all() 
+        return context 
+    
 
 #The project class base View page
 class Projects(ListView): 
