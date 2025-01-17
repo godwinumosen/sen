@@ -13,7 +13,6 @@ from .models import SecondCategoryPost,SenwinLatestPost
 '''def home(request):
     return render (request,'senwin/home.html')'''
 
-
 #The main HomeView page
 class HomeView(ListView): 
     model = SenwinMainPost
