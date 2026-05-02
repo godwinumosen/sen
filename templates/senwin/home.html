@@ -10,37 +10,67 @@
     </video><br>
 <!-- Carousel End -->
 
-    <!-- About Start -->
-    <div class="container-fluid py-6 px-5">
-        <div class="row g-5">
-            <div class="col-lg-7">
-                <h5 class="display-7 mb-4"style="color: #055160; font-family: emoji;">Stay ahead of the curve with expert insights, product reviews, and the tech trends defining tomorrow</h5>
-                <p style="color: #040F28; font-family: emoji;">Senwin takes center stage in the tech industry, offering creative media campaigns, sizzling tech events, bespoke innovation programs.</p>
-                <div class="row gx-5 py-2">
-                    <div class="col-sm-6 mb-2">
-                        <p class="fw-bold mb-2"style="font-family: emoji;"><i class="fa fa-check text-primary me-3"></i>Innovation and Progress</p>
-                        <p class="fw-bold mb-2"style="font-family: emoji;"><i class="fa fa-check text-primary me-3"></i>Expert Insights</p>
-                        <p class="fw-bold mb-2"style="font-family: emoji;"><i class="fa fa-check text-primary me-3"></i>Practicality</p>
-                    </div>
+<!-- About Start -->
+<div class="container py-5">
+
+    <div class="row align-items-center g-5">
+
+        <!-- Text Content -->
+        <div class="col-lg-6">
+            <h2 class="fw-bold mb-4" style="color: #055160;">
+                Stay ahead of the curve with expert insights & tech trends
+            </h2>
+
+            <p class="text-primary">
+                Senwin takes center stage in the tech industry, offering creative media campaigns,
+                exciting tech events, and bespoke innovation programs.
+            </p>
+
+            <!-- Features -->
+            <div class="row mt-4">
+                <div class="col-sm-6">
+                    <p class="fw-semibold">
+                        <i class="fa fa-check text-primary me-2"></i> Innovation & Progress
+                    </p>
+                    <p class="fw-semibold">
+                        <i class="fa fa-check text-primary me-2"></i> Expert Insights
+                    </p>
+                    <p class="fw-semibold">
+                        <i class="fa fa-check text-primary me-2"></i> Practical Solutions
+                    </p>
                 </div>
-                <p class="mb-4"style="font-family: emoji;">At the intersection of innovation and practicality, we bring you the insights you need to navigate in the tech world.
-                    From Backend Development, CyberSecurity, Data Analysis to Blockchain, dive into the technologies driving the next generation of progress and possibilities.
-                </p>
             </div>
-            <div class="col-lg-5 pb-5" style="height: 500px;">
-                <div class="position-relative bg-dark-radial h-100 ms-5">
-                    <img class="position-absolute w-100 h-100 mt- ms-n5" src="{% static 'img/senwin.jpg' %}" style="object-fit: cover;border-radius: 5px;">
-                </div>
+
+            <p class="text-primary mt-3">
+                At the intersection of efficiency and innovation, Senmi Logistics delivers reliable and smart logistics solutions.
+                From transportation and supply chain management to last-mile delivery —
+                we power the movement of goods with speed, precision, and trust.
+            </p>
+
+            <a href="#" class="btn btn-primary rounded-pill px-4 mt-3">
+                Learn More
+            </a>
+        </div>
+
+        <!-- Image -->
+        <div class="col-lg-6">
+            <div class="about-img-wrapper position-relative">
+                <img src="{% static 'img/senwin.jpg' %}" 
+                     class="img-fluid rounded-4 shadow"
+                     style="height: 500px; width: 100%; object-fit: cover;border-radius: 5px;" alt="About Image">
             </div>
         </div>
+
     </div>
-    <!-- About End -->
+
+</div>
+<!-- About End -->
      
     
     <!-- Portfolio Start -->
     <div class="container-fluid bg-light py-6 px-5">
         <div class="text-center mx-auto mb-5" style="max-width: 600px;">
-            <h1 class="display-5 mb-4"style="color: #055160; font-family: emoji;">My Projects</h1>
+            <h2 class="display-4 mb-4"style="color: #055160;">My projects</h2>
         </div>
         <div class="row gx-5">
             <div class="col-12 text-center">
@@ -80,35 +110,61 @@
     <!-- Portfolio End -->
 
     <!-- Services Start -->
-    <div class="container-fluid bg-light py-6 px-5">
-        <div class="text-center mx-auto mb-5" style="max-width: 600px;">
-            <h3 class="display-5 mb-4"style="color: #055160; font-family: emoji;">We Provide The Best Technologies Services</h3>
-        </div>
-        <div class="row g-5">
-        {% for post in object_list %}
-            <div class="col-lg-6 col-md-">
-                <div class="service-item bg-white d-flex flex-column align-items-center text-center">
-                    <a href="{% url 'detail' post.pk %}">
-                    <img class="img-fluid" src="{{ post.senwin_image.url }}"style="border-radius: 5px; height:300px;width: 550px;"alt=""><br>
-                    </a><br>
-                    <div class="px-7 pb-4">
-                        <a href="{% url 'detail' post.pk %}">
-                        <h4 class="mb-3"style="color: #055160;">{{ post.senwin_title }}</h4>
-                        </a>
-                        <p>{{ post.senwin_description |truncatechars:77 }}</p>
-                        <a class="btn btn-primary"style="color:white;" href="{% url 'detail' post.pk %}">Read More <i class="bi bi-arrow-right"></i></a>
-                    </div>
-                </div>
-            </div>
-            {% endfor %}
-        </div>
+    <div class="container py-5">
+    
+    <!-- Section Title -->
+    <div class="text-center mb-5">
+        <h2 class="fw-bold"style="color: #055160;">We provide the best technology services</h2>
+        <p class="text-muted">Explore our latest solutions and innovations</p>
     </div>
-    <!-- Services End -->
+
+    <!-- Services Grid -->
+    <div class="row g-4 ">
+        {% for post in object_list %}
+        <div class="col-lg-4 col-md-6">
+            
+            <div class="card h-100 shadow-sm border-0 service-card">
+                
+                <!-- Image -->
+                <a href="{% url 'detail' post.pk %}">
+                    <img src="{{ post.senwin_image.url }}" 
+                         class="card-img-top"
+                         style="height: 220px; object-fit: cover;"
+                         alt="">
+                </a>
+
+                <!-- Content -->
+                <div class="card-body text-center">
+                    <a href="{% url 'detail' post.pk %}" class="text-decoration-none">
+                        <h5 class="card-title fw-semibold"style="color: #055160;">
+                            {{ post.senwin_title }}
+                        </h5>
+                    </a>
+
+                    <p class="card-text text-primary">
+                        {{ post.senwin_description|truncatechars:80 }}
+                    </p>
+                </div>
+
+                <!-- Button -->
+                <div class="card-footer bg-white border-0 text-center pb-4">
+                    <a href="{% url 'detail' post.pk %}" 
+                       class="btn btn-primary px-4 rounded-pill">
+                        Read More
+                    </a>
+                </div>
+
+            </div>
+
+        </div>
+        {% endfor %}
+    </div>
+</div>
     
     <!-- Testimonial Start -->
     <div class="container-fluid bg-light py-6 px-5">
         <div class="text-center mx-auto mb-5" style="max-width: 600px;">
-            <h1 class="display-5 mb-4"style="color: #055160; font-family: emoji;">Feed Back From Our Happy Cleints Say</h1>
+            <h3 class="display-4 mb-4"style="color: #055160;">Feed back from cleints</h3>
         </div>
         <div class="row gx-0 align-items-center">
             <div class="col-xl-4 col-lg-5 d-none d-lg-block">
@@ -155,7 +211,7 @@
     <!-- Blog Start -->
     <div class="container-fluid py-8 px-5">
         <div class="text-center mx-auto mb-5" style="max-width: 600px;">
-            <h1 class="display-5 mb-4"style="color: #055160; font-family: emoji;">Latest Post</h1>
+            <h3 class="display-4 mb-4"style="color: #055160;">Latest post</h3>
         </div>
         <div class="row g-5">
             {% for senwin_latest_page in senwin_latest_pages %}

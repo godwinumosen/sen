@@ -19,6 +19,10 @@ body {
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
 
+.bg-dark {
+    background-color: #055160 !important;
+}
+
 element.style {
     color: #055160;
     font-family:'Trebuchet MS';
@@ -28,6 +32,19 @@ element.style {
     color: #000;
     background-color: #055160;
     border-color: #040f28;
+}
+
+.about-img-wrapper {
+    overflow: hidden;
+    border-radius: 16px;
+}
+
+.about-img-wrapper img {
+    transition: transform 0.4s ease;
+}
+
+.about-img-wrapper:hover img {
+    transform: scale(1.05);
 }
 
 .btn-check:checked+.btn-primary, .btn-check:active+.btn-primary, .btn-primary:active, .btn-primary.active, .show>.btn-primary.dropdown-toggle {
